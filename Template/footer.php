@@ -8,7 +8,9 @@
             <div class="col-md">
                 <form action="API/SendToDatabase.php" method="post">
                     mail : <input type="text" name="mail" placeholder="mail">
+                    accept : <input type="checkbox">
                     <input type="submit" placeholder="Sauvegarder ma page">
+                    
                 </form>
             </div>
             <div class="col-md">
