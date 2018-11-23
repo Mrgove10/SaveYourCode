@@ -5,8 +5,8 @@ $prenom = $_POST["prenom"];
 
 $FileName = $prenom .'-'. $nom;
 
-copy('../Template/template.php', '../Saves/'. $FileName .'.php');
+copy('../Template/Complete.html', '../Saves/'. $FileName .'.html');
 
-header('Location: ../Saves/'.$FileName.'.php'); 
+header('Location: ../Saves/'.$FileName.'.html'); 
 
 ?>
