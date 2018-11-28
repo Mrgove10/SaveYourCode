@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>SaveYourCode</title>
+    <title>SaveYourCode EPSI/WIS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <style>
@@ -42,24 +42,13 @@
 
     <div class="container-fluid" style="position:fixed;bottom:0px;width:100%;background-color:#d8d8d8;padding:1%;">
         <div class="row" style="margin:1px;">
-            <div class="col-md">
-                <form id="mainForm" name="mainForm" action="../API/SendToDatabase.php" method="post">
-                    Nom : <input type="text" name="nom" placeholder="Nom"><br>
-                    Prenom : <input type="text" name="prenom" placeholder="Prenom"><br>
-                    E-Mail : <input type="email" name="mail" placeholder="E-Mail"><br>
-                    Dans le cadre de la RGPD, j'accepte d'étre contacté·e par email : <input type="checkbox" id="commercial"
-                        name="commercial"><br>
-                    <input type="hidden" name="rawCode" id="rawCode" value="" >
-                    <a href="#" class="btn btn-outline-primary" onclick="setValue();">Sauvegarder ma page</a>
-                </form>
-            </div>
             <a target="_blank" href="http://www.epsi.fr/campus/campus-de-grenoble/"><div class="col-md">
-                <img src="../Media/Logo EPSI.png" style="height:75px">
+                <img src="Media/Logo EPSI.png" style="height:75px">
                 <br>    
                 EPSI Grenoble
             </div></a>
             <a target="_blank" href="http://www.wis-ecoles.com/campus/campus-de-grenoble/"><div class="col-md">
-                <img src="../Media/Logo WIS.jpg" style="height:75px">
+                <img src="Media/Logo WIS.jpg" style="height:75px">
                 <br>    
                 WIS Grenoble
             </div></a>
@@ -67,6 +56,8 @@
                 Coded with ❤ by <a target="_blank" href="https://adrienrichard.com/">Adrien Richard</a> in Grenoble 🏔<br>
                <a href="#">🏠</a><br>
                I am OpenSource : <a target="_blank" href="https://github.com/Mrgove10/SaveYourCode">Github</a>!<br>
+               <a href="Template/Complete.html">👩‍💻&👨‍💻</a><br>
+               
             </div>
         </div>
     </div>
@@ -82,18 +73,7 @@
             // var css = document.getElementById("css");
             // var js = document.getElementById("js");
             var code = document.getElementById("code").contentWindow.document;
-            html.value = `
-<h1 style="color:blue">Titre1</h1>
-<p>
-    <b>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<b><br>
-    <i>Nullam quis iaculis ligula.</i><br>
-    <a target="_blank" href="https://google.com/">Google.com<a>
-</p>
-
-<h2>Titre 2</h2>
-
-<img src="https://media.giphy.com/media/sIIhZliB2McAo/giphy.gif">
- `;
+            html.value = `<h1>Colle con code HTML ici ! :)</h1> `;
             document.body.onkeyup = function () {
                 code.open();
                 code.writeln(
