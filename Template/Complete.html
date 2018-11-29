@@ -44,11 +44,11 @@
         <div class="row" style="margin:1px;">
             <div class="col-md">
                 <form id="mainForm" name="mainForm" action="../API/SendToDatabase.php" method="post">
-                    Nom : <input type="text" name="nom" placeholder="Nom"><br>
                     Prenom : <input type="text" name="prenom" placeholder="Prenom"><br>
+                    Nom : <input type="text" name="nom" placeholder="Nom"><br>
                     E-Mail : <input type="email" name="mail" placeholder="E-Mail"><br>
-                    Dans le cadre de la RGPD, j'accepte d'étre contacté·e par email : <input type="checkbox" id="commercial"
-                        name="commercial"><br>
+                    Dans le cadre de la RGPD, j'accepte d'étre contacté·e ultérieurement par email : <input type="checkbox" id="commercial"
+                        name="commercial" value=""><br>
                     <input type="hidden" name="rawCode" id="rawCode" value="" >
                     <a href="#" class="btn btn-outline-primary" onclick="setValue();">Sauvegarder ma page</a>
                 </form>
@@ -82,15 +82,14 @@
             // var css = document.getElementById("css");
             // var js = document.getElementById("js");
             var code = document.getElementById("code").contentWindow.document;
-            html.value = `
-<h1 style="color:blue">Titre1</h1>
+            html.value = `<h1 style="color:blue">Titre 1 - Lorem ipsum</h1>
 <p>
-    <b>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<b><br>
+    <b>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</b><br>
     <i>Nullam quis iaculis ligula.</i><br>
     <a target="_blank" href="https://google.com/">Google.com<a>
 </p>
 
-<h2>Titre 2</h2>
+<h2>Titre 2 - Nyan cat</h2>
 
 <img src="https://media.giphy.com/media/sIIhZliB2McAo/giphy.gif">
  `;

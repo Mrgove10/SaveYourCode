@@ -2,23 +2,23 @@
   require_once("../Config/DBConnectLocal.php");
   require_once("../Config/DBConnect.php");
   require_once('../lib/phpqrcode/qrlib.php');
-  require_once("../Config/mail.php");
 
   $ID = uniqid();
   $mail = $_POST['mail'];
-  $commercial = $_POST['commercial'];
-  $nom = $_POST['nom'];
-  $prenom = $_POST['prenom'];
-  $rawCode = $_POST['rawCode'];
-  $mysql_date_now = date("Y-m-d H:i:s");
-
-  if($commercial == "on"){
+  $commercial = null;
+  if (isset($_POST['commercial'])){
     $commercial = 1;
   }
   else{
     $commercial = 0;
   }
-  
+  $nom = $_POST['nom'];
+  $prenom = $_POST['prenom'];
+  $rawCode = $_POST['rawCode'];
+  $mysql_date_now = date("Y-m-d H:i:s");
+  require_once("../Config/mail.php");
+
+
   try {
     $sql = "INSERT INTO Main (ID,Mail,UtilisationCommercial,Rawcode,Nom,Prenom,DateAjout) VALUES (?,?,?,?,?,?,?)";
     $bdd->prepare($sql)->execute([$ID,$mail,$commercial,$rawCode,$nom,$prenom,$mysql_date_now]);
@@ -45,29 +45,19 @@
     curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode(array(
       "api_key" => "api-260C516AF30711E8A478F23C91BBF4A0",
       "to" => array(
-        0 => $prenom . " " .$nom ."<".$mail.">"
+        0 => "Adrien Richard<".$mail.">"
       ),
-      "sender" => "Adrien Richard<test@example.com>",
-      "subject" => "Ton site WIS/EPSI du Salon de l'etudiant",
+      "sender" => "Adrien Richard<adrien@adrienrichard.com>",
+      "subject" => "Découvre ton 1er site web crée avec EPSI/WIS !",
       "html_body" => $bodymail
 
     )));
-    echo("<br>");
-    echo("<br>");
-
     $result = curl_exec($curl);
 
-    echo $result;
-
-echo('
-<script>
-  var timeLeft = 50;
-  if( window.localStorage ) {
-    if( !localStorage.getItem( \'endTimer\' ) ) {
-      localStorage.setItem( \'endTimer\', new Date().getTime() + (timeLeft * 1000) );
+    if (strpos($result, 'error_code') !== false) {
+      echo $result;
     }
-  }
-</script>
-');
-
+    else{
+      header('Location: ../Template/Complete.html');    
+    }
 ?>

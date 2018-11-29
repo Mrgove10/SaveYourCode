@@ -57,7 +57,6 @@
                <a href="#">🏠</a><br>
                I am OpenSource : <a target="_blank" href="https://github.com/Mrgove10/SaveYourCode">Github</a>!<br>
                <a href="Template/Complete.html">👩‍💻&👨‍💻</a><br>
-               
             </div>
         </div>
     </div>
